@@ -1,0 +1,83 @@
+<h1 class="tituloConsultaPedido">Novo Pedido</h1>
+
+<mat-card class="cardCliente cardClientePedido">
+    <img  class="icone" src="assets/img/icone-cliente.png" alt="icone Cliente">
+        <mat-card-title>Cliente</mat-card-title>
+             <mat-form-field appearance="fill" class="width50 height36 padding64">
+                <mat-label>Informe um Cliente *</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let cliente of clientes" [value]="cliente.codigoCliente" (click)="adicionarClientePedido(cliente)">
+                    {{cliente.codigoCliente}} - {{cliente.nome}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+</mat-card>
+
+<mat-card class="cardCliente top56">
+  <img  class="icone" src="assets/img/icone-carrinho.png" alt="icone Cliente">
+      <mat-card-title>Carrinho</mat-card-title>
+           <mat-form-field appearance="fill" class="width50 height36 padding64">
+              <mat-label>Pesquise um Produto *</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let produto of produtos" [value]="produto.codigo_Produto" (click)="teste(produto)">
+                  {{produto.codigoProduto}} - {{produto.nome}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <form class="form textoCentralizado">
+              <div class="width100" *ngIf="carrinhoVazio">
+                <img class="width100px"  src="assets/img/imagem-carrinho-empty-state.png" alt="carrinho vazio">
+                <h1 class="textoCarrinho">Carrinho Vazio</h1>
+                <h2 class="textoCarrinho">Nenhum Pedido Foi Inserido</h2>
+              </div>  
+              <div *ngIf="true" fxLayout="row wrap" fxLayoutAlign="start center">
+                <ng-container *ngFor="let live of itensPedido" style="margin: 0.5%;">    
+                  <mat-card class="panelItensProdutos">
+                    <mat-card-header>
+                      <div mat-card-avatar  class="imagemProduto">
+                        <img class="imagemProduto" style="margin-top: 0;" src="{{live.produto.imagemUrl}}">
+                      </div>
+                      <mat-card-title style="position: absolute;
+                      left: 225px;color:rgba(0,0,0,.54); font-family: Roboto, 'Helvetica Neue', sans-serif;
+                      top: 33%;">{{live.produto.codigo}}</mat-card-title>
+                      <mat-card-subtitle style="white-space: nowrap;
+                      width: 25em;
+                      overflow: hidden;
+                      text-overflow: ellipsis;position: absolute;color: black;left: 177px;top: 47%;font-weight: 700 !important;">{{live.produto.nome}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-actions class="cardAction">
+                    
+                      <mat-form-field class="example-form-field" style="width: 41px;
+                      text-align: center !important;
+                      border: 1px solid !important;
+                      font-size: 11px !important;
+                      position: absolute !important;
+                      right: 213px !important;
+                      top: 25%;">                        
+                        <input matInput type="text" [(ngModel)]="live.quantidadeProduto" name="quantidadeProduto" (change) = "calcularValorTotalItem(live)">                       
+                      </mat-form-field>
+
+                      <mat-label style="position: absolute;
+                      top: 32%;
+                      font-size: 19px;
+                      right: 90px;">{{live.produto.precoUnitario | currency: 'x R$  '}}</mat-label>
+                      <mat-label style="top: 55% !important;
+                      position: absolute;
+                      right: 35%;
+                      font-size: 23px;">{{live.valorTotalItem | currency: 'R$  '}}</mat-label>
+                      <button mat-button style="top: 50%" (click) = "retirarItemCarrinho(live)">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </mat-card-actions>
+                  </mat-card>              
+                </ng-container>
+              </div>
+              <div class="width100" *ngIf="!carrinhoVazio" style="padding-top: 23px; text-align: right;">
+                <mat-label style="padding-right: 23px;">{{pedido.valorTotalPedido | currency: 'R$  '}}</mat-label>
+                <button mat-raised-button color="primary" (click) = "finalizarPedido()"> 
+                      Finalizar Compra
+                 </button>
+              </div>  
+              </form>         
+</mat-card>

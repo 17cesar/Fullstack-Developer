@@ -1,0 +1,26 @@
+<mat-toolbar class="header mat-elevation-z1">
+ <span>
+     <a>
+         <img  class="logo" src="assets/img/logotipo-maximatech.png" alt="logo">
+     </a>
+ </span>
+
+ <span class="menuCadastro">
+    <button mat-button [matMenuTriggerFor]="menuCadastro" class="fontMenu">Cadastro</button>
+    <mat-menu #menuCadastro="matMenu">
+      <button mat-menu-item class="fontMenu" (click) = "cliente()">Cliente</button>
+      <button mat-menu-item class="fontMenu" (click) = "produto()">Produto</button>
+    </mat-menu>
+ </span>
+
+
+ <span class="menuPedido">
+    <button mat-button [matMenuTriggerFor]="menuPedido" class="fontMenu">Pedido</button>
+    <mat-menu #menuPedido="matMenu">
+      <button mat-menu-item class="fontMenu" (click) = "novoPedido()">Novo Pedido</button>
+      <button mat-menu-item class="fontMenu" (click) = "consultaPedido()">Consulta Pedido</button>
+    </mat-menu>
+ </span>
+
+
+</mat-toolbar>

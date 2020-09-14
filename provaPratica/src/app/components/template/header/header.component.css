@@ -1,0 +1,38 @@
+.header{
+    display: flex;    
+    align-items: center;
+    padding-left: 82px;
+    padding-bottom: 5px;
+    background-color: white;
+}
+
+.header a {
+    display: flex;    
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo {
+    max-height: 44px;
+}
+
+.menuCadastro{
+    padding-left: 40px;
+    padding-top: 10px;
+   
+}
+
+
+.menuPedido{
+    padding-top: 10px;  
+}
+
+.fontMenu {
+    font-size: 20px;
+}
+
+.mat-menu-item {
+  padding-right: 70px !important;
+  line-height: 30px !important;
+  height: 35px !important;
+}
