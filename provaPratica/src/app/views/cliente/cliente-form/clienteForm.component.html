@@ -1,0 +1,22 @@
+<mat-card>
+    <img  class="icone" src="assets/img/icone-cliente.png" alt="icone Cliente">
+        <mat-card-title>Cliente</mat-card-title>
+        <mat-divider></mat-divider>
+        <form class="form">
+            <mat-form-field class="width40 paddingForm">
+                <mat-label>Nome</mat-label>
+                <input matInput  [(ngModel)]="cliente.nome"  name="name" placeholder="Ex. cesar H">
+              </mat-form-field>
+              <mat-form-field class="width40 paddingForm">
+                <mat-label>Id</mat-label>
+                <input matInput [(ngModel)]="cliente.id"  name="id" placeholder="Ex. 3452-5421...">
+              </mat-form-field>
+              <div class="width100 textoCentralizado">
+                 <button mat-raised-button color="primary" (click)="teste()" class="button esqueda40">Salvar</button>
+                 <button mat-raised-button class="button" (click)="cancelar()">Consultar</button>
+                 <button mat-raised-button color="accent" class="button direita40" (click)="novo()">Novo</button>
+                 <button mat-raised-button color="warn" class="button direita80" (click)="novo()">Excluir</button>
+               
+                </div>
+        </form>
+</mat-card>
