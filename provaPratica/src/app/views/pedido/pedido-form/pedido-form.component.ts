@@ -46,8 +46,8 @@ export class PedidoFormComponent implements OnInit {
      }     
     this.produtoTemporario = obj;   
     var itemPedidoTemporario = {      
-      codigo_ItemPedido: 0,	
-      pedido: 0,
+      codigo_ItemPedido: null,	
+      pedido: null,
       produto: obj,	
       quantidadeProduto: 1,	
       valorTotalItem: obj.precoUnitario,
@@ -56,7 +56,7 @@ export class PedidoFormComponent implements OnInit {
     this.objTemporarrio = itemPedidoTemporario;
     this.itemProduto = this.objTemporarrio;
     this.carrinhoVazio = false
-    this.itensPedido.unshift(this.itemProduto);  
+    this.itensPedido.push(this.itemProduto);  
     this.calcularValorTotal();  
     
   }
@@ -93,15 +93,15 @@ export class PedidoFormComponent implements OnInit {
       valorTotalPedido: 0, 
       quantidadeProdutos: 0,
       valorFreteUnitario: 0,
-      itensPedidos: null 
+      itensPedido: [] 
     }
     this.pedido = pedido;
   }  
 
   finalizarPedido():void{
     if(this.pedido.cliente != null){  
-      this.pedido.itensPedidos = []   
-      this.itensPedido.map(a=> this.pedido.itensPedidos.unshift(a))
+      this.pedido.itensPedido = []   
+      this.itensPedido.map(a=> this.pedido.itensPedido.push(a))
       this.pedidoService.salvarPedido(this.pedido).subscribe(() => {
         this.pedidoService.showMessage("Pedido Criado")
         this.route.navigate(['./pedido'])

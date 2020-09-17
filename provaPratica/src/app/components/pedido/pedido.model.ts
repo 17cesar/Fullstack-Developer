@@ -8,5 +8,5 @@ export interface Pedido {
     valorTotalPedido: number 
     quantidadeProdutos: number
     valorFreteUnitario: number
-    itensPedidos: ItensPedido[]
+    itensPedido: ItensPedido[]
 }

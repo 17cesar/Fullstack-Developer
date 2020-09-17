@@ -13,19 +13,24 @@
                  </ng-container>
                 
 
-                  <ng-container matColumnDef="valorTotalPedido" class="textoCentralizado width40">
-                    <th mat-header-cell *matHeaderCellDef class="textoCentralizado width40 font20">Valor Total</th>
-                    <td mat-cell *matCellDef="let row" class="textoCentralizado width40">{{row.valorTotalPedido | currency: 'R$'}}</td>
+                  <ng-container matColumnDef="valorTotalPedido" class="textoCentralizado">
+                    <th mat-header-cell *matHeaderCellDef class="textoCentralizado font20">Valor Total</th>
+                    <td mat-cell *matCellDef="let row" class="textoCentralizado ">{{row.valorTotalPedido | currency: 'R$'}}</td>
                   </ng-container>
               
-                  <ng-container matColumnDef="quantidadeProdutos" class="textoCentralizado width40">
-                    <th mat-header-cell *matHeaderCellDef class="textoCentralizado width40 font20">Quantidade Produtos</th>
-                    <td mat-cell *matCellDef="let row" class="textoCentralizado width40">{{row.quantidadeProdutos}}</td>
+                  <ng-container matColumnDef="quantidadeProdutos" class="textoCentralizado">
+                    <th mat-header-cell *matHeaderCellDef class="textoCentralizado  font20">Quantidade Produtos</th>
+                    <td mat-cell *matCellDef="let row" class="textoCentralizado ">{{row.quantidadeProdutos}}</td>
                   </ng-container>
                   
-                  <ng-container matColumnDef="valorFreteUnitario" class="textoCentralizado width40">
+                  <ng-container matColumnDef="valorFreteUnitario" class="textoCentralizado">
+                    <th mat-header-cell *matHeaderCellDef class="textoCentralizado  font20">Valor Frete Produto</th>
+                    <td mat-cell *matCellDef="let row" class="textoCentralizado ">{{row.valorFreteUnitario | currency: 'R$'}}</td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="valorFreteTotal" class="textoCentralizado width40">
                     <th mat-header-cell *matHeaderCellDef class="textoCentralizado width40 font20">Valor Frete</th>
-                    <td mat-cell *matCellDef="let row" class="textoCentralizado width40">{{row.valorFreteUnitario | currency: 'R$'}}</td>
+                    <td mat-cell *matCellDef="let row" class="textoCentralizado width40">{{row.frete | currency: 'R$'}}</td>
                   </ng-container>
 
                   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

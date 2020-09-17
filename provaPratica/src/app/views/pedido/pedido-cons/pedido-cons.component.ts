@@ -12,7 +12,7 @@ export class PedidoConsComponent implements OnInit {
 
   
   pedidos: Pedido[]
-  displayedColumns = ['codigoPedido','valorTotalPedido' , 'quantidadeProdutos','valorFreteUnitario']
+  displayedColumns = ['codigoPedido','valorTotalPedido' , 'quantidadeProdutos','valorFreteUnitario','valorFreteTotal']
 
   constructor(private pedidoService: PedidoService , private route: Router) { }
 
